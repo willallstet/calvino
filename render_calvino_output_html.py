@@ -458,13 +458,16 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
       content: "\\A\\A";
       white-space: pre;
     }}
+    .segment-quote + .segment-inline.paragraph-start::before {{
+      content: "\\A";
+    }}
     .segment-inline.paragraph-start:first-child::before {{
       content: "";
     }}
     .segment-quote {{
-      margin: 0.6em 0;
+      margin: 0.2em 0;
       padding-left: 0.9em;
-      border-left: 2px solid #666666;
+      border-left: 2px solid #ffffff;
     }}
     .panel.original .segment-block {{
       transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
