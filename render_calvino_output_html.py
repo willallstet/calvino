@@ -336,15 +336,33 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
       padding: 0;
       height: 100%;
       color: #ffffff;
+      background: transparent;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }}
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {{
+      width: 0;
+      height: 0;
+      display: none;
+    }}
+    html {{
+      background-color: #000000;
     }}
     body {{
       min-height: 100vh;
       font-family: serif;
+      position: relative;
+    }}
+    body::before {{
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       background-image: url("IMG_1604.jpeg");
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 100% 100%;
-      background-attachment: fixed;
     }}
     .wrap {{
       box-sizing: border-box;
@@ -353,12 +371,20 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
       padding: 40px 48px 0;
       position: relative;
     }}
+    .mobile-only-warning {{
+      display: none;
+    }}
     .preface {{
       width: 100%;
-      margin: 0 0 24px;
+      margin: 0;
       line-height: 1.5;
       color: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
+    }}
+    .preface-divider {{
+      width: 100%;
+      margin: 12px 0;
+      border-top: 1px dashed #ffffff;
     }}
     .preface p {{
       margin: 0 0 1em;
@@ -398,8 +424,6 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
-      border-top: 1px dashed #ffffff;
-      padding-top: 20px;
       position: sticky;
       top: 0;
       height: 100vh;
@@ -456,25 +480,28 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
       text-decoration: underline;
     }}
     @media (max-width: 1024px) {{
-      .grid {{
-        grid-template-columns: 1fr;
-        position: static;
-        height: auto;
+      .wrap {{
+        display: none;
       }}
-      .panel {{
-        min-height: auto;
-        overflow: visible;
-      }}
-      .chunk {{
-        height: auto;
-        overflow: visible;
+      .mobile-only-warning {{
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1rem;
+        color: #ffffff;
       }}
     }}
   </style>
 </head>
 <body>
+  <div class="mobile-only-warning">Desktop only</div>
   <div class="wrap">
     {preface_section}
+    <div class="preface-divider" aria-hidden="true"></div>
     <div class="grid">
       <section class="panel original">
         <div class="chunk sync-scroll">{joined_original}</div>
@@ -489,7 +516,7 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
     (function () {{
       const columns = Array.from(document.querySelectorAll(".chunk.sync-scroll"));
       const track = document.getElementById("scroll-track");
-      const preface = document.querySelector(".preface");
+      const grid = document.querySelector(".grid");
       const mobileQuery = window.matchMedia("(max-width: 1024px)");
       let syncStartOffset = 0;
       let syncScrollRange = 0;
@@ -516,9 +543,11 @@ def render_html(blocks: List[Dict[str, str]], final_text: str, preface_text: str
           0,
           ...columns.map((col) => Math.max(0, col.scrollHeight - col.clientHeight))
         );
-        syncStartOffset = preface ? preface.offsetHeight : 0;
+        syncStartOffset = grid
+          ? Math.max(0, grid.getBoundingClientRect().top + window.scrollY)
+          : 0;
         syncScrollRange = maxRange;
-        track.style.height = `${{Math.max(1, syncStartOffset + syncScrollRange + window.innerHeight)}}px`;
+        track.style.height = `${{Math.max(1, syncStartOffset + syncScrollRange)}}px`;
         syncColumns();
       }}
 
