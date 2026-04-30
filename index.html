@@ -27,6 +27,7 @@
       body {
         min-height: 100vh;
         font-family: serif;
+        font-size: 1.06em;
         position: relative;
       }
       body::before {
@@ -146,14 +147,49 @@
       }
       .panel.original .segment-block {
         transition:
-          background-color 120ms ease-in-out,
+          background-color 120ms ease-in-out 80ms,
           color 120ms ease-in-out;
       }
+      .panel.original .segment-block .segment {
+        transition: color 120ms ease-in-out;
+      }
       .panel.original .segment-block.is-hovered {
+        transition:
+          background-color 120ms ease-in-out,
+          color 120ms ease-in-out 80ms;
         background: #ffffff;
         color: #000000;
       }
       .panel.original .segment-block.is-hovered .segment {
+        transition: color 120ms ease-in-out 80ms;
+        color: #000000 !important;
+      }
+      .panel.original .segment a,
+      .panel.original .segment a:link,
+      .panel.original .segment a:visited,
+      .panel.original .segment a:hover,
+      .panel.original .segment a:active {
+        color: #ffffff !important;
+      }
+      .panel.original .chunk a,
+      .panel.original .chunk a:link,
+      .panel.original .chunk a:visited,
+      .panel.original .chunk a:hover,
+      .panel.original .chunk a:active {
+        color: #ffffff !important;
+      }
+      .panel.original .segment-block.is-hovered .segment a,
+      .panel.original .segment-block.is-hovered .segment a:link,
+      .panel.original .segment-block.is-hovered .segment a:visited,
+      .panel.original .segment-block.is-hovered .segment a:hover,
+      .panel.original .segment-block.is-hovered .segment a:active {
+        color: #000000 !important;
+      }
+      .panel.original .segment-block.is-hovered a,
+      .panel.original .segment-block.is-hovered a:link,
+      .panel.original .segment-block.is-hovered a:visited,
+      .panel.original .segment-block.is-hovered a:hover,
+      .panel.original .segment-block.is-hovered a:active {
         color: #000000 !important;
       }
       a.segment:hover {
@@ -622,7 +658,13 @@
               class="segment-block segment-inline paragraph-start"
               data-segment-index="56"
               ><span class="segment"
-                >In <i>Metamorphoses Book I</i>, as translated by A.S.</span
+                >In
+                <a
+                  href="https://ovid.lib.virginia.edu/trans/Metamorph.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i>Metamorphoses Book I</i></a
+                >, as translated by A.S.</span
               ></span
             >
             <span class="segment-block segment-inline" data-segment-index="57"
@@ -937,8 +979,13 @@
             >
             <span class="segment-block segment-inline" data-segment-index="108"
               ><span class="segment"
-                >In the fifteenth book of the <em>Metamorphoses</em>,
-                Pythagoras:</span
+                >In the
+                <a
+                  href="https://ovid.lib.virginia.edu/trans/Metamorph15.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >fifteenth book of the <em>Metamorphoses</em></a
+                >, Pythagoras:</span
               ></span
             >
             <br /><br />
@@ -1070,7 +1117,12 @@
               form of the soul; she gives life to her own discoveries; she
               awakens the mind and purifies the intellect; she brings light to
               our intrinsic ideas; she abolishes oblivion and ignorance which
-              are ours by birth.
+              are ours by birth. (<a
+                href="https://archive.org/details/proclidiadochiin00procuoft/page/46/mode/2up"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i>Mathematical Thought from Ancient to Modern Times</i></a
+              >, 1972)
             </blockquote>
             <span
               class="segment-block segment-inline paragraph-start"
@@ -1206,8 +1258,13 @@
                 le refaire, c'est le rétablir dans un état complet qui peut
                 n'avoir jamais existé à un moment donné. (Viollet-le-Duc,
                 <em
-                  >Dictionnaire raisonné de l&#x27;architecture française du XIe
-                  au XVIe siècle</em
+                  ><a
+                    href="https://www.gutenberg.org/ebooks/30782"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Dictionnaire raisonné de l&#x27;architecture française du
+                    XIe au XVIe siècle</a
+                  ></em
                 >)<br /><br />To restore a building is not to preserve it, to
                 repair it, or to rebuild it; it is to reinstate it in a
                 condition of completeness which may never have existed at any
@@ -1241,13 +1298,14 @@
               <span
                 class="segment-block segment-inline"
                 data-segment-index="151"
-                ><span class="segment"
-                  >
-                  Chaque membre de la construction gothique est une force qui agit, et dont l'action est visible. Rien n'est inerte; tout concourt à l'équilibre par la résistance active de ses parties.
-                  <br/></span
-                ></span
-              >
-              <br/><br/>
+                ><span class="segment">
+                  Chaque membre de la construction gothique est une force qui
+                  agit, et dont l'action est visible. Rien n'est inerte; tout
+                  concourt à l'équilibre par la résistance active de ses
+                  parties.
+                  <br /></span
+              ></span>
+              <br /><br />
               <span
                 class="segment-block segment-inline"
                 data-segment-index="152"
@@ -1337,8 +1395,14 @@
               class="segment-block segment-inline paragraph-start"
               data-segment-index="165"
               ><span class="segment"
-                >In Melville&#x27;s &quot;Bartleby, the Scrivener,&quot; a
-                copyist in a Wall Street law office begins declining
+                >In Melville&#x27;s
+                <a
+                  href="https://moglen.law.columbia.edu/LCS/bartleby.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >&quot;Bartleby, the Scrivener,&quot;</a
+                >
+                a copyist in a Wall Street law office begins declining
                 tasks:</span
               ></span
             >
@@ -1356,7 +1420,8 @@
                 class="segment-block segment-inline"
                 data-segment-index="166"
                 ><span class="segment"
-                  >I looked at him steadfastly. His face was leanly composed; his gray eye dimly calm.</span
+                  >I looked at him steadfastly. His face was leanly composed;
+                  his gray eye dimly calm.</span
                 ></span
               >
               <span
@@ -1556,69 +1621,76 @@
             >
             <span class="segment-block segment-inline" data-segment-index="199"
               ><span class="segment"
-                >In &quot;The Garden of Forking Paths,&quot; the sinologist
-                Stephen Albert explains to Yu Tsun the nature of the novel
-                composed by his ancestor Ts&#x27;ui Pên:</span
+                >In &quot;<a
+                  href="http://oldsite.english.ucsb.edu/faculty/rraley/courses/eng146/Garden.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >The Garden of Forking Paths</a
+                >,&quot; the sinologist Stephen Albert explains to Yu Tsun the
+                nature of the novel composed by his ancestor Ts&#x27;ui
+                Pên:</span
               ></span
             >
             <br /><br />
             <blockquote class="segment-block segment-quote paragraph-start">
               <span class="segment-block segment-inline paragraph-start"
                 ><span class="segment"
-                  >In all fictions, each time a man meets diverse alternatives,
-                  he chooses one and eliminates the others; in the fiction of
-                  the virtually impossible-to-disentangle Ts&#x27;ui Pên, the
-                  character chooses—simultaneously—all of them.</span
+                  >In all fiction, when a man is faced with alternatives he
+                  chooses one at the expense of the others. In the almost
+                  unfathomable Ts'ui Pên, he chooses-simultaneously-all of
+                  them.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline paragraph-start"
                 data-segment-index="200"
                 ><span class="segment"
-                  >He creates, thereby, several futures, several times, which
-                  also proliferate and fork.</span
+                  >He thus creates various futures, various times which start
+                  others that will in their turn branch out and bifurcate in
+                  other times.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="201"
                 ><span class="segment"
-                  >That is the explanation for the novel&#x27;s
-                  contradictions.</span
+                  >This is the cause of the contradictions in the novel.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="202"
                 ><span class="segment"
-                  >Fang, let us say, has a secret; a stranger knocks at his
-                  door; Fang decides to kill him.</span
+                  >Fang, let us say, has a secret. A stranger knocks at his
+                  door. Fang makes up his mind to kill him.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="203"
                 ><span class="segment"
-                  >Naturally, there are various possible outcomes—Fang can kill
-                  the intruder, the intruder can kill Fang, they can both live,
-                  they can both die, and so on.</span
+                  >Naturally there are various possible outcomes. Fang can kill
+                  the intruder, the intruder can kill Fang, both can be saved,
+                  both can die and so on and so on.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline paragraph-start"
                 data-segment-index="204"
                 ><span class="segment"
-                  >In Ts&#x27;ui Pên&#x27;s novel, all the outcomes occur; each
-                  one is the starting point for further bifurcations.</span
+                  >In Ts&#x27;ui Pên&#x27;s work, d, both can die and so on and
+                  so on. In Ts'ui Pên's work, all the possible solutions occur,
+                  each one being the point of departure for other
+                  bifurcations.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="205"
                 ><span class="segment"
-                  >Once in a while, the paths of that labyrinth converge: for
-                  example, you come to this house, but in one of the possible
-                  pasts you are my enemy, in another my friend.</span
+                  >Sometimes the pathways of this labyrinth converge. For
+                  example, you come to this house; but in other possible pasts
+                  you are my enemy; in others my friend.</span
                 ></span
               >
             </blockquote>
@@ -1663,8 +1735,13 @@
             >
             <span class="segment-block segment-inline" data-segment-index="214"
               ><span class="segment"
-                >&quot;Tlön, Uqbar, Orbis Tertius&quot; moves in a different
-                direction.</span
+                ><a
+                  href="https://sites.evergreen.edu/politicalshakespeares/wp-content/uploads/sites/226/2015/12/Borges-Tl%C3%B6n-Uqbar-Orbius-Tertius.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >&quot;Tlön, Uqbar, Orbis Tertius&quot;</a
+                >
+                moves in a different direction.</span
               ></span
             >
             <span class="segment-block segment-inline" data-segment-index="217"
@@ -1681,21 +1758,19 @@
                 class="segment-block segment-inline paragraph-start"
                 data-segment-index="218"
                 ><span class="segment"
-                  >Then came the Second World War, the dispersal of the
-                  brotherhood. Its persecution by totalitarian governments. Its
-                  work went underground—and was, we may reasonably assume,
-                  continued. In 1944 a journalist of the Nashville American came
-                  across, in a Memphis library, the forty volumes of the First
-                  Encyclopedia of Tlön.</span
+                  >Around 1944, a person doing research for the newspaper The
+                  American (of Nashville, Tennessee) brought to light in a
+                  Memphis library the forty volumes of the First Encyclopedia of
+                  Tlön.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="219"
                 ><span class="segment"
-                  >To this day it is debated whether the discovery was
-                  accidental or whether the directors of the still-nebulous
-                  Orbis Tertius permitted it.</span
+                  >Even today there is a controversy over whether this discovery
+                  was accidental or whether it was permitted by the directors of
+                  the still nebulous Orbis Tertius.</span
                 ></span
               >
               <span
@@ -1707,85 +1782,85 @@
                 class="segment-block segment-inline"
                 data-segment-index="221"
                 ><span class="segment"
-                  >Some of the incredible features the eleventh volume had
-                  eliminated or toned down were, in the Memphis copy, present;
-                  those eliminations or attenuations were in keeping with the
-                  plan of projecting a world which would not be too incompatible
-                  with the real world.</span
+                  >Some of the incredible aspects of the Eleventh Volume (for
+                  example, the multiplication of the hrihzir) have been
+                  eliminated or attenuated in the Memphis copies; it is
+                  reasonable to imagine that these omissions follow the plan of
+                  exhibiting a world which is not too incompatible with the real
+                  world.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="222"
                 ><span class="segment"
-                  >The dissemination of objects from Tlön through various
-                  countries would complement that plan...</span
+                  >The dissemination of objects from Tli:in over different
+                  countries would complement this plan...</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="223"
                 ><span class="segment"
-                  >The fact is that the international press trumpeted endlessly
-                  the &quot;find.&quot; Manuals, anthologies, summaries, literal
-                  versions, authorized reprints, and pirated editions of the
-                  Master Work of Man poured and continue to pour out into the
-                  world.</span
+                  >The fact is that the international press infinitely
+                  proclaimed the "find." Manuals, anthologies, summaries,
+                  literal versions, authorized re-editions and pirated editions
+                  of the Greatest Work of Man flooded and still flood the
+                  earth.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="224"
                 ><span class="segment"
-                  >Almost immediately, reality &quot;gave ground&quot; on more
-                  than one point.</span
+                  >Almost immediately, reality yielded on more than one
+                  account.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="225"
                 ><span class="segment"
-                  >The truth is that it hankered to give ground.</span
+                  >The truth is that it longed to yield.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="226"
                 ><span class="segment"
-                  >Ten years ago, any symmetry, any system with an appearance of
-                  order—dialectical materialism, anti-Semitism, Nazism—could
-                  spellbind and hypnotize mankind.</span
+                  >Ten years ago any symmetry with a semblance of
+                  order-dialectical materialism, anti-Semitism, Nazism-was
+                  sufficient to entrance the minds of men.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="227"
                 ><span class="segment"
-                  >Why not fall under the spell of Tlön and submit to the minute
-                  and vast evidence of an ordered planet?</span
+                  >How could one do other than submit to Tlön, to the minute and
+                  vast evidence of an orderly planet?</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="228"
                 ><span class="segment"
-                  >Useless to reply that reality is also ordered.</span
+                  >It is useless to answer that reality is also orderly.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="229"
                 ><span class="segment"
-                  >Perhaps it is, but ordered in accordance with divine laws—I
-                  translate: inhuman laws—which we will never completely
-                  perceive.</span
-                ></span
+                  >Perhaps it is, but in accordance with divine laws—I
+                  translate: in human laws-which we never quite grasp.
+                </span></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="230"
                 ><span class="segment"
-                  >Tlön may be a labyrinth, but it is a labyrinth plotted by
+                  >Tlön is surely a labyrinth, but it is a labyrinth devised by
                   men, a labyrinth destined to be deciphered by men.</span
                 ></span
               >
@@ -1793,7 +1868,7 @@
                 class="segment-block segment-inline paragraph-start"
                 data-segment-index="231"
                 ><span class="segment"
-                  >Contact with Tlön, the habit of Tlön, has disintegrated this
+                  >The contact and the habit of Tlön have disintegrated this
                   world.</span
                 ></span
               >
@@ -1801,22 +1876,21 @@
                 class="segment-block segment-inline"
                 data-segment-index="232"
                 ><span class="segment"
-                  >Enchanted by Tlön&#x27;s rigor, humanity has forgotten, goes
-                  on forgetting, that it is the rigor of chess masters, not of
-                  angels.</span
+                  >Enchanted by its rigor, humanity forgets over and again that
+                  it is a rigor of chess masters, not of angels.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="233"
-                ><span class="segment"
-                  >Already Tlön&#x27;s conjectural &quot;primitive
-                  language&quot; has filtered into our schools; already the
-                  teaching of Tlön&#x27;s harmonious history (filled with moving
-                  episodes) has obliterated the history that dominated my own
-                  childhood; already a fictitious past has supplanted in
-                  men&#x27;s memories that other past, of which we now know
-                  nothing certain—not even that it is false.</span
+                ><span class="segment">
+                  Already the schools have been invaded by the (conjectural)
+                  "primitive language" of Tlön; already the teaching of its
+                  harmonious history (filled with moving episodes) has wiped out
+                  the one which governed in my childhood; already a .fictitious
+                  past occupies in our memories the place of another, a past of
+                  which we know nothing with certainty-not even that it is
+                  false.</span
                 ></span
               >
             </blockquote>
@@ -1924,7 +1998,13 @@
             >
             <span class="segment-block segment-inline" data-segment-index="251"
               ><span class="segment"
-                >Keats, in December 1817, in a letter to his brothers:</span
+                >Keats, in December 1817, in a
+                <a
+                  href="https://mason.gmu.edu/~rnanian/Keats-NegativeCapability.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >letter to his brothers</a
+                >:</span
               ></span
             >
             <br /><br />
@@ -1933,48 +2013,63 @@
                 class="segment-block segment-inline"
                 data-segment-index="252"
                 ><span class="segment"
-                  >My dear Brothers, I must crave your pardon for not having
-                  written ere this... I spent Friday evening with Wells &amp;
-                  went the next morning to see Death on the Pale Horse.</span
+                  >My dear brothers,<br />
+                  I must crave your pardon for not having written ere this...I
+                  spent Friday evening with Wells, and went next morning to see
+                  Death on the Pale Horse.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="253"
                 ><span class="segment"
-                  >It is a wonderful picture, when West&#x27;s age is
-                  considered; But there is nothing to be intense upon; no women
-                  one feels mad to kiss; no face swelling into reality.</span
-                ></span
+                  >It is a wonderful picture, when West’s age is considered; But
+                  there is nothing to be intense upon; no woman one feels mad to
+                  kiss, no face swelling into reality —
+                </span></span
               >
               <span
                 class="segment-block segment-inline"
                 data-segment-index="254"
                 ><span class="segment"
-                  >the excellence of every Art is its intensity, capable of
+                  >The excellence of every art is its intensity, capable of
                   making all disagreeables evaporate, from their being in close
-                  relationship with Beauty &amp; Truth—Examine King Lear &amp;
+                  relationship with Beauty and Truth. Examine ‘King Lear’, and
                   you will find this exemplified throughout; but in this picture
                   we have unpleasantness without any momentous depth of
-                  speculation excited, in which to bury its repulsiveness—
-                  <br /><br />
-                  I had not a dispute but a disquisition with Dilke, on various
-                  subjects; several things dovetailed in my mind, &amp; at once
-                  it struck me, what quality went to form a Man of Achievement
-                  especially in Literature &amp; which Shakespeare possessed so
-                  enormously—I mean Negative Capability, that is when man is
-                  capable of being in uncertainties, Mysteries, doubts, without
-                  any irritable reaching after fact &amp; reason—Coleridge, for
-                  instance, would let go by a fine isolated verisimilitude
-                  caught from the Penetralium of mystery, from being incapable
-                  of remaining content with half knowledge.</span
+                  speculation excited, in which to bury its repulsiveness — The
+                  picture is larger than ‘Christ rejected’. I dined with Haydon
+                  the Sunday after you left, and had a very pleasant day, I
+                  dined too (for I have been out too much lately) with Horace
+                  Smith, and met his two Brothers, with Hill and Kingston, and
+                  one Du Bois. They only served to convince me, how superior
+                  humour is to wit in respect to enjoyment — These men say
+                  things which make one start, without making one feel; they are
+                  all alike; their manners are alike; they all know
+                  fashionables; they have a mannerism in their eating and
+                  drinking, in their mere handling a Decanter — They talked of
+                  Kean and his low company — Would I were with that Company
+                  instead of yours, said I to myself! I know such like
+                  acquaintance will never do for me and yet I am going to
+                  Reynolds on Wednesday. Brown and Dilke walked with me and back
+                  from the Christmas pantomime. I had not a dispute but a
+                  disquisition, with Dilke on various subjects; several things
+                  dove-tailed in my mind, and at once it struck me what quality
+                  went to form a Man of Achievement, especially in Literature,
+                  and which Shakespeare possessed so enormously — I mean
+                  Negative Capability, that is, when a man is capable of being
+                  in uncertainties, mysteries, doubts, without any irritable
+                  reaching after fact and reason — Coleridge, for instance,
+                  would let go by a fine isolated verisimilitude caught from the
+                  Penetralium of mystery, from being incapable of remaining
+                  content with half-knowledge.</span
                 ></span
               >
               <span
                 class="segment-block segment-inline paragraph-start"
                 data-segment-index="255"
                 ><span class="segment"
-                  >This pursued through Volumes would perhaps take us no further
+                  >This pursued through volumes would perhaps take us no further
                   than this, that with a great poet the sense of Beauty
                   overcomes every other consideration, or rather obliterates all
                   consideration.</span
@@ -2009,13 +2104,21 @@
               ></span
             >
             <span class="segment-block segment-inline" data-segment-index="261"
-              ><span class="segment">---</span></span
-            >
+              ><span class="segment"></span
+            ></span>
             <span class="segment-block segment-inline" data-segment-index="262"
               ><span class="segment"
-                >Flaubert, in a letter to Louise Colet, January 1852:</span
+                >Flaubert, in a
+                <a
+                  href="https://flaubert.univ-rouen.fr/correspondance/correspondance/16-janvier-1852-de-gustave-flaubert-%C3%A0-louise-colet/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >letter</a
+                >
+                to Louise Colet, January 1852:</span
               ></span
             >
+            <br /><br />
             <blockquote class="segment-block segment-quote">
               <span
                 class="segment-block segment-inline"
@@ -2127,7 +2230,15 @@
             >
             <span class="segment-block segment-inline" data-segment-index="273"
               ><span class="segment"
-                >Aristotle saw the same principle in dramatic plot:</span
+                >Aristotle saw the same principle in dramatic plot in
+                <i
+                  ><a
+                    href="https://www.loebclassics.com/view/aristotle-poetics/1995/pb_LCL199.63.xml?print"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Poetics</a
+                  ></i
+                >:</span
               ></span
             >
             <br /><br />
@@ -2136,27 +2247,40 @@
               data-segment-index="274"
             >
               <span class="segment"
-                >ταῦτα δὲ γίνεται καὶ μάλιστα ὅταν γένηται παρὰ τὴν δόξαν δι᾽
-                ἄλληλα· τὸ γὰρ θαυμαστὸν οὕτως ἕξει μᾶλλον ἢ εἰ ἀπὸ τοῦ
-                αὐτομάτου καὶ τῆς τύχης, ἐπεὶ καὶ τῶν ἀπὸ τύχης ταῦτα
-                θαυμασιώτατα δοκεῖ ὅσα ὥσπερ ἐπίτηδες φαίνεται γεγονέναι, οἷον
-                ὡς ὁ ἀνδριὰς ὁ τοῦ Μίτυος ἐν Ἄργει ἀπέκτεινεν τὸν αἴτιον τοῦ
-                θανάτου τῷ Μίτυι, θεωροῦντι ἐμπεσών· ἔοικεν γὰρ τὰ τοιαῦτα οὐκ
-                εἰκῇ γενέσθαι· ὥστε ἀνάγκη τοὺς τοιούτους εἶναι καλλίους
-                μύθους.</span
+                >τῶν δὲ ἁπλῶν38 μύθων καὶ πράξεων αἱ ἐπεισοδιώδεις εἰσὶν
+                χείρισται· λέγω δ᾿ ἐπεισοδιώδη μῦθον ἐν ᾧ τὰ ἐπεισόδια μετ᾿
+                ἄλληλα οὔτ᾿ εἰκὸς οὔτ᾿ ἀνάγκη εἶναι. τοιαῦται δὲ ποιοῦνται ὑπὸ
+                μὲν τῶν φαύλων ποιητῶν δι᾿ αὐτούς, ὑπὸ δὲ τῶν ἀγαθῶν διὰ τοὺς
+                aὑποκριτάς· ἀγωνίσματα γὰρ ποιοῦντες καὶ παρὰ τὴν δύναμιν
+                παρατείνοντες τὸν μῦθον πολλάκις διαστρέφειν ἀναγκάζονται τὸ
+                ἐφεξῆς. ἐπεὶ δὲ οὐ μόνον τελείας ἐστὶ πράξεως ἡ μίμησις ἀλλὰ καὶ
+                φοβερῶν καὶ ἐλεεινῶν, ταῦτα δὲ γίνεται καὶ μάλιστα ὅταν γένηται
+                παρὰ τὴν δόξαν δι᾿ ἄλληλα· τὸ γὰρ θαυμαστὸν οὕτως ἕξει μᾶλλον ἢ
+                εἰ ἀπὸ τοῦ αὐτομάτου καὶ τῆς τύχης, ἐπεὶ καὶ τῶν ἀπὸ τύχης ταῦτα
+                θαυμασιώτατα δοκεῖ ὅσα ὥσπερ ἐπίτηδες φαίνεται γεγονέναι, οἷον
+                ὡς ὁ ἀνδριὰς ὁ τοῦ Μίτυος ἐν Ἄργει ἀπέκτεινεν τὸν αἴτιον τοῦ
+                θανάτου τῷ Μίτυι, θεωροῦντι ἐμπεσών· ἔοικε γὰρ τὰ τοιαῦτα οὐκ
+                εἰκῇ γίνεσθαι· ὥστε ἀνάγκη τοὺς τοιούτους εἶναι καλλίους
+                μύθους.</span
               >
               <br /><br />
               <span class="segment"
-                >Such effects are best produced when events come about contrary
-                to expectation yet on account of one another; for thus they will
-                have more of the marvelous than if they happened by chance or
-                fortune, since even among chance occurrences the most marvelous
-                seem to be those that appear to have been brought about by
-                design—as for example the statue of Mitys at Argos killed the
-                man who had caused Mitys&#x27;s death, by falling on him while
-                he was watching a festival; for such things do not seem to
-                happen at random; so that plots of this sort must necessarily be
-                finer.</span
+                >Of simple plots and actions, the episodic are worst. By
+                “episodic” I mean a plot in which the episodes follow one
+                another without probability or necessity. Such plays are
+                composed by bad poets through their own fault, and by good poets
+                for the sake of the actors: for in composing show pieces, and
+                stretching the plot beyond its capacity, they are often forced
+                to distort the continuity. Given that the mimesis is not only of
+                a complete action but also of fearful and pitiable matters, the
+                latter arise above all when events occur contrary to expectation
+                yet on account of one another. The awesome will be maintained
+                in this way more than through show of chance and fortune,
+                because even among chance events we find most awesome those
+                which seem to have happened by design (as when Mitys' statue at
+                Argos killed the murderer of Mitys, by falling on him as he
+                looked at it: such things seem not to occur randomly). And so,
+                such plots are bound to be finer.</span
               >
             </blockquote>
             <br /><br />
@@ -4800,7 +4924,7 @@
               ></span
             >
             <span
-              class="segment-block segment-inline hover-target paragraph-start"
+              class="segment-block segment-inline hover-target"
               data-segment-index="171"
               ><a
                 class="segment"
