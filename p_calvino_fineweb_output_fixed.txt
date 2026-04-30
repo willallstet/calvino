@@ -1,0 +1,18 @@
+Calvino + FineWeb Vector Replacement
+Dataset: HuggingFaceFW/fineweb
+Config/Split: sample-10BT/train
+Indexed sentence count: 50444268
+Semantic weight: 0.62
+
+[Sentence 1] score=-0.0216 semantic=0.4949 style=0.5462 lexical=0.2439 cohesion=0.0000
+ORIGINAL: Proclus, as quoted by Morris Kline:
+
+This, therefore, is mathematics: she reminds you of the invisible form of the soul; she gives life to her own discoveries; she awakens the mind and purifies the intellect; she brings light to our intrinsic ideas; she abolishes oblivion and ignorance which are ours by birth.
+MATCH:    The Agent Intellect also belongs to this hierarchy of separate substances: the “light” shed by the Agent Intellect is seen as the condition for the intellect that is a faculty of the human soul, namely the potential intellect, to actually know the intelligibles (Walzer 1970).
+SOURCE_URL: https://stanford.library.sydney.edu.au/archives/fall2018/entries/arabic-islamic-greek/
+SOURCE_META: row_id=<urn:uuid:804ceb81-1c7b-4ec4-9a5e-092fdf71835b> file_path=s3://commoncrawl/crawl-data/CC-MAIN-2022-27/segments/1656104514861.81/warc/CC-MAIN-20220705053147-20220705083147-00324.warc.gz date=2022-07-05T06:13:42Z dump=CC-MAIN-2022-27
+FONT:     family="Source Sans Pro", Arial, sans-serif size=15px weight=400 style=normal node=div
+
+Consistency
+----------------------------------------
+The Agent Intellect also belongs to this hierarchy of separate substances: the “light” shed by the Agent Intellect is seen as the condition for the intellect that is a faculty of the human soul, namely the potential intellect, to actually know the intelligibles (Walzer 1970).
