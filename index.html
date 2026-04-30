@@ -577,7 +577,7 @@
               class="segment-block segment-inline paragraph-start"
               data-segment-index="42"
               ><span class="segment"
-                >This is what I mean, I think, when I say consistency precedes
+                >This is what I mean when I say consistency precedes
                 the work.</span
               ></span
             >
@@ -7285,6 +7285,74 @@
         const mobileQuery = window.matchMedia("(max-width: 1024px)");
         let syncStartOffset = 0;
         let syncScrollRange = 0;
+        let syncAnchorsByColumn = null;
+        let targetScrollTops = [];
+        let renderedScrollTops = [];
+        let animationFrameId = null;
+        const SCROLL_EASING = 0.22;
+        const SCROLL_SNAP_THRESHOLD = 0.35;
+        const ANCHOR_BLEND = 0.72;
+
+        function collectAnchorCenters(col) {
+          const anchors = new Map();
+          const nodes = Array.from(
+            col.querySelectorAll(".segment-block[data-segment-index]"),
+          );
+          for (const node of nodes) {
+            const idx = node.getAttribute("data-segment-index");
+            if (!idx || anchors.has(idx)) continue;
+            anchors.set(idx, node.offsetTop + node.offsetHeight / 2);
+          }
+          return anchors;
+        }
+
+        function buildSyncAnchors() {
+          if (columns.length < 2) return null;
+          const anchorMaps = columns.map(collectAnchorCenters);
+          const sharedIndices = Array.from(anchorMaps[0].keys())
+            .filter((idx) => anchorMaps.every((map) => map.has(idx)));
+          if (sharedIndices.length < 2) return null;
+          return columns.map((_, colIdx) =>
+            sharedIndices.map((idx) => anchorMaps[colIdx].get(idx)),
+          );
+        }
+
+        function mappedScrollTop(col, anchors, progress) {
+          const colRange = Math.max(0, col.scrollHeight - col.clientHeight);
+          if (!anchors || anchors.length < 2) return colRange * progress;
+          const pos = progress * (anchors.length - 1);
+          const i = Math.floor(pos);
+          const next = Math.min(anchors.length - 1, i + 1);
+          const frac = pos - i;
+          const center = anchors[i] + (anchors[next] - anchors[i]) * frac;
+          const target = center - col.clientHeight / 2;
+          return Math.max(0, Math.min(colRange, target));
+        }
+
+        function startSmoothSync() {
+          if (animationFrameId !== null) return;
+          const tick = () => {
+            let needsAnotherFrame = false;
+            for (const [idx, col] of columns.entries()) {
+              const target = targetScrollTops[idx] ?? 0;
+              const current = renderedScrollTops[idx] ?? col.scrollTop ?? 0;
+              const delta = target - current;
+              if (Math.abs(delta) <= SCROLL_SNAP_THRESHOLD) {
+                renderedScrollTops[idx] = target;
+              } else {
+                renderedScrollTops[idx] = current + delta * SCROLL_EASING;
+                needsAnotherFrame = true;
+              }
+              col.scrollTop = renderedScrollTops[idx];
+            }
+            if (needsAnotherFrame) {
+              animationFrameId = requestAnimationFrame(tick);
+            } else {
+              animationFrameId = null;
+            }
+          };
+          animationFrameId = requestAnimationFrame(tick);
+        }
 
         function syncColumns() {
           if (mobileQuery.matches) return;
@@ -7293,15 +7361,26 @@
             syncScrollRange > 0
               ? Math.min(1, activeScroll / syncScrollRange)
               : 0;
-          for (const col of columns) {
-            const colRange = Math.max(0, col.scrollHeight - col.clientHeight);
-            col.scrollTop = colRange * progress;
+          for (const [idx, col] of columns.entries()) {
+            const linear = Math.max(0, col.scrollHeight - col.clientHeight) * progress;
+            const anchors = syncAnchorsByColumn
+              ? syncAnchorsByColumn[idx]
+              : null;
+            const mapped = mappedScrollTop(col, anchors, progress);
+            targetScrollTops[idx] = mapped * ANCHOR_BLEND + linear * (1 - ANCHOR_BLEND);
           }
+          startSmoothSync();
         }
 
         function updateTrack() {
           if (mobileQuery.matches) {
             track.style.height = "0px";
+            if (animationFrameId !== null) {
+              cancelAnimationFrame(animationFrameId);
+              animationFrameId = null;
+            }
+            targetScrollTops = [];
+            renderedScrollTops = [];
             for (const col of columns) col.scrollTop = 0;
             return;
           }
@@ -7311,10 +7390,13 @@
               Math.max(0, col.scrollHeight - col.clientHeight),
             ),
           );
+          syncAnchorsByColumn = buildSyncAnchors();
           syncStartOffset = grid
             ? Math.max(0, grid.getBoundingClientRect().top + window.scrollY)
             : 0;
           syncScrollRange = maxRange;
+          renderedScrollTops = columns.map((col) => col.scrollTop);
+          targetScrollTops = columns.map((col) => col.scrollTop);
           track.style.height = `${Math.max(1, syncStartOffset + syncScrollRange)}px`;
           syncColumns();
         }
